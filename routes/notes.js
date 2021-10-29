@@ -1,29 +1,22 @@
-const express = require('express');
-const fs = require('fs');
-const db = require('../db/db.json');
-const router = express.Router();
-const uuid = require('uuid');
+const router = require('express').Router();
+const db = require('../db');
 
-router.use(express.static('db'));
 
 // Not sure if the res.sendFile should be used or .json
 router.get('/notes', (req, res) => {
-    // res.sendFile(path.join(__dirname, "/db/db.json"))
-    res.json(db)
+    db.readNote().then((data) => res.json(data)).catch(err => res.status(500).json(err))
 });
+
 
 router.post('/notes', (req, res) => {
-    const notes = JSON.parse(fs.readFileSync('./db/db.json'));
-    const newNote = req.body;
-    // Enabled uuid so each new note has a random id attached to it
-    newNote.id = uuid.v4();
-    notes.push(newNote);
-    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
-    res.json(notes)
+    db.writeNotes(req.body).then(note => res.json(note)).catch(err => res.status(500).json(err))
 });
 
+
+
+
 router.delete('/notes/:id', (req, res) => {
-    res.json(db)
+    db.deleteNote(req.params.id).then(() => res.json({ ok: true })).catch(err => res.status(500).json(err))
 });
 
 module.exports = router
