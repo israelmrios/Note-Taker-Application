@@ -4,6 +4,7 @@ const path = require('path');
 const db = require('./db/db.json');
 
 const app = express();
+// Added process.env so the app can be deployed to Heroku
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
@@ -23,7 +24,7 @@ app.get('/notes', (req, res) =>
 // );
 
 const notesRouter = require('./routes/notes');
-
+// Added notesRouter to route the API Notes 
 app.use('/api', notesRouter);
 
 app.listen(PORT, () =>

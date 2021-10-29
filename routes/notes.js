@@ -6,18 +6,20 @@ const uuid = require('uuid');
 
 router.use(express.static('db'));
 
+// Not sure if the res.sendFile should be used or .json
 router.get('/notes', (req, res) => {
     // res.sendFile(path.join(__dirname, "/db/db.json"))
     res.json(db)
 });
 
 router.post('/notes', (req, res) => {
-    const currNotes = JSON.parse(fs.readFileSync('./db/db.json'));
+    const notes = JSON.parse(fs.readFileSync('./db/db.json'));
     const newNote = req.body;
+    // Enabled uuid so each new note has a random id attached to it
     newNote.id = uuid.v4();
-    currNotes.push(newNote);
-    fs.writeFileSync('./db/db.json', JSON.stringify(currNotes));
-    res.json(currNotes)
+    notes.push(newNote);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+    res.json(notes)
 });
 
 router.delete('/notes/:id', (req, res) => {
