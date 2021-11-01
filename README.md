@@ -21,7 +21,7 @@ How to install this application and getting started:
 * Run `npm install --y` which will install any dependencies
 
 ## Usage
-You can find the deployed application by clicking on this link https://.
+You can find the deployed application by clicking on this link https://shrouded-lake-77408.herokuapp.com/.
 
 ### Step 1
 * Invoke the following command on your integrated terminal:
@@ -29,28 +29,34 @@ You can find the deployed application by clicking on this link https://.
 ```bash
 node server.js
 ```
-![Screenshot of .](./assets/images/)
+![Screenshot of command being invoked.](./assets/images/invoking-command.png)
 
 ### Step 2
-* 
+* After the command has been intered in the terminal you will see a message with the localhost. Click on the localhost link to visit the server site.
 
-![Screenshot of .](./assets/images/)
+![Screenshot of localhost server.](./assets/images/app-localhost.png)
 
 ### Step 3
-* 
+* You will see the landing page of the Note Taker Application. Click "Get Started".
 
-![Screenshot of .](./assets/images/)
+![Screenshot of landing page.](./assets/images/landing-page.png)
 
 ### Step 4
-* 
+* You will be routed to the note page. On the left you will see any previous notes saved and on the right you will be able to enter a new note. Enter a Note Title and the text for the note. After entering the note Click the "Save" icon.
 
-![Screenshot of .](./assets/images/)
-![Screenshot of .](./assets/images/)
+![Screenshot of empty note fields.](./assets/images/create-note.png)
+![Screenshot of a written note and save icon.](./assets/images/save-note.png)
 
 ### Step 5
-* 
+* After entering your note you will see it has been added to the list of notes on the left.
 
-![Screenshot of .](./assets/images/)
+![Screenshot of newly added note.](./assets/images/note-list.png)
+
+### Step 5
+* To delete a note click on the "trash" icon next to the note you want to delete. After clicking on the "trash" icon you will see the note has been removed.
+
+![Screenshot of trash icon next to note.](./assets/images/delete-note.png)
+![Screenshot after the image was removed.](./assets/images/note-was-deleted.png)
 
 ## Contributing
 There are many ways in which you can participate in this project, for example:

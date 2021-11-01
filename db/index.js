@@ -5,6 +5,7 @@ const fs = require('fs');
 const readAsync = util.promisify(fs.readFile);
 const writeAsync = util.promisify(fs.writeFile);
 
+
 class Notes {
     read() {
         return readAsync('db/db.json', 'utf-8');
